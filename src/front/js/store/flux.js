@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       message: null,
+      personaje: {},
       demo: [
         {
           title: "FIRST",
@@ -39,6 +40,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error loading message from backend", error);
         }
       },
+
+      getPeople: (id) => {
+        try {
+          // fetching data from the backend
+          fetch("https://www.swapi.tech/api/people/" + id)
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data.result.properties.name);
+              setStore({ personaje: data });
+            });
+        } catch (error) {
+          console.log("Error loading message from backend", error);
+        }
+      },
+
       changeColor: (index, color) => {
         //get the store
         const store = getStore();

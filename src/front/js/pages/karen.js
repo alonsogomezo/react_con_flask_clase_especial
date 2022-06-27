@@ -13,7 +13,7 @@ const Karen = () => {
     <div>
       {store.personaje && (
         <div>
-          <h1>{store.personaje.properties.name}</h1>
+          <h1>{store.personaje.name}</h1>
         </div>
       )}
     </div>

@@ -44,10 +44,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       getPeople: (id) => {
         try {
           // fetching data from the backend
-          fetch("https://www.swapi.tech/api/people/" + id)
+          fetch("https://swapi.dev/api/people/" + id)
             .then((res) => res.json())
             .then((data) => {
-              console.log(data.result.properties.name);
+              console.log(data);
               setStore({ personaje: data });
             });
         } catch (error) {
